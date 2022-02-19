@@ -1,0 +1,11 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: rsapp-scaler
+spec:
+  maxReplicas: 10
+  minReplicas: 5
+  scaleTargetRef:
+    kind: ReplicaSet
+    name: rsapp
+  targetCPUUtilizationPercentage: 50
